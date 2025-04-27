@@ -2,16 +2,14 @@ version: 0.2
 
 phases:
   install:
-    commands: 
-      -echo installing Nginx
-      - sudo apt install nginx -y
+    commands:
+      - echo installing NGINX
+      - sudo yum install nginx -y
   build:
     commands:
-      - echo Build start
-      - cp index.html /var/www/html/index.html
+      - echo Build started on 'date'
+      - mkdir -p /var/www/html
+      - cp index.html /var/www/html
   post_build:
     commands:
-      - echo configuring Nginx server
-artifacts:
-  files:
-    - /var/www/html/index.html
+      - echo Configuring NGINX 
