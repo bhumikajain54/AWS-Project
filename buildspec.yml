@@ -3,15 +3,17 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Skipping Nginx installation
+      - echo installing Nginx
+      - sudo apt update
+      - sudo apt install nginx -y
   build:
     commands:
       - echo Build start
-      - mkdir -p output
-      - cp index.html output/index.html
+      - cp index.html /var/www/html
   post_build:
     commands:
-      - echo Build completed
+      - echo configuring Nginx server
+
 artifacts:
   files:
-    - output/index.html
+    - /var/www/html/index.html
